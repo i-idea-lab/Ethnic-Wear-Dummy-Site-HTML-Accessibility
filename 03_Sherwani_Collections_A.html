@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#852221",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#ff948c",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#80bea6",
+                      "inverse-primary": "#95d3ba",
+                      "outline-variant": "#bfc9c3",
+                      "inverse-surface": "#293040",
+                      "tertiary-container": "#821f1f",
+                      "outline": "#707974",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#064e3b",
+                      "error": "#ba1a1a",
+                      "surface": "#f9f9ff",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#dce2f7",
+                      "surface-dim": "#d3daef",
+                      "secondary-fixed-dim": "#e9c349",
+                      "tertiary": "#62050b",
+                      "secondary-fixed": "#ffe088",
+                      "on-secondary-fixed-variant": "#574500",
+                      "secondary-container": "#fed65b",
+                      "on-secondary-container": "#745c00",
+                      "on-tertiary-fixed": "#410004",
+                      "inverse-on-surface": "#edf0ff",
+                      "tertiary-fixed-dim": "#ffb3ad",
+                      "primary-fixed-dim": "#95d3ba",
+                      "surface-bright": "#f9f9ff",
+                      "on-surface-variant": "#404944",
+                      "primary-fixed": "#b0f0d6",
+                      "primary": "#003527",
+                      "surface-container-high": "#e1e8fd",
+                      "on-background": "#141b2b",
+                      "surface-tint": "#2b6954",
+                      "surface-container-low": "#f1f3ff",
+                      "secondary": "#735c00",
+                      "background": "#f9f9ff",
+                      "on-surface": "#141b2b",
+                      "tertiary-fixed": "#ffdad7",
+                      "surface-container-highest": "#dce2f7",
+                      "on-secondary-fixed": "#241a00",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e9edff",
+                      "on-primary-fixed": "#002117"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Noto Serif"],
+                      "headline-display": ["Noto Serif"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Noto Serif"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container"><a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-yellow-400 text-black px-4 py-2 z-[100] font-bold outline-2 outline-offset-2 outline-black focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#main-content">Skip to main content</a>
+<!-- Shared TopNavBar -->
+<header class="bg-emerald-950/95 dark:bg-emerald-950/95 backdrop-blur-md text-emerald-50 dark:text-emerald-50 docked full-width top-0 z-50 border-b border-emerald-800/30 shadow-sm fixed w-full">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-serif italic text-emerald-50 cursor-pointer transition-transform duration-300 hover:scale-105" style="">Heritage Lux</div>
+<nav class="hidden md:flex gap-8 items-center font-noto-serif tracking-wide uppercase text-sm">
+<a class="text-yellow-400 border-b border-yellow-400 pb-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Sherwanis</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Lehengas</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Kurta Sets</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Occasion Wear</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">The Lookbook</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center border-b border-emerald-100/30 px-2 py-1">
+<span class="material-symbols-outlined text-sm opacity-60" style="">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs uppercase tracking-widest w-32 placeholder-emerald-100/40 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" placeholder="Search" type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" style="">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" style="">favorite</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" style="">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24" id="main-content">
+<!-- Hero Header Section -->
+<section class="px-margin-desktop mb-section-gap">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-12">
+<div class="w-full md:w-2/3">
+<h1 class="font-headline-display text-headline-display text-primary mb-8" style="">Sherwanis.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed" style="">
+                        An ode to the timeless silhouettes of the Indian subcontinent. Each piece is a masterclass in ancestral craftsmanship, featuring intricate hand-embroidery and precision tailoring designed for the modern gentleman’s most defining moments.
+                    </p>
+</div>
+<div class="w-full md:w-1/3 aspect-[3/4] bg-surface-variant overflow-hidden">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover" data-alt="Close-up of a dark emerald green sherwani with intricate gold thread embroidery on the collar and shoulders, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNqhQKChxJ4WvdkQSIzTLVZyuhxLQQIiAGvt5rMeoJmah1bqilVan5itNJItUnJXX6f5TQCGYw1O9Iawe53YpJCxma_mq8ZjPHMcbwS0rgdQape9iy-6n-wE6WdSr8zPZRoah-6I-8B5w2_7BeXR30sfpwfzVJOz0eXvlgWnyTnUJbk06HN6wNVhU1fOlymTsysEid-k5rPGeoQq-okq3DljkK0kDMpUHUhwvokjamr179yuSVXFYWZE4T5DnIdiidrg0xDCvS0go" style=""/>
+</div>
+</div>
+</section>
+<!-- Product Exploration Section -->
+<section class="px-margin-desktop mb-section-gap max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="sticky top-32 space-y-10">
+<div>
+<h3 class="font-headline-md text-sm uppercase tracking-widest text-primary mb-6 border-b border-outline-variant pb-2" style="">Occasion</h3>
+<div class="space-y-3 font-body-md text-sm text-on-surface-variant">
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Wedding
+                                </label>
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Sangeet
+                                </label>
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Reception
+                                </label>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-sm uppercase tracking-widest text-primary mb-6 border-b border-outline-variant pb-2" style="">Fabric</h3>
+<div class="space-y-3 font-body-md text-sm text-on-surface-variant">
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Velvet
+                                </label>
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Silk
+                                </label>
+<label class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors" style="">
+<input aria-label="Filter by occasion" class="rounded-none border-outline text-primary-container focus:ring-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" type="checkbox"/>
+                                    Brocade
+                                </label>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-sm uppercase tracking-widest text-primary mb-6 border-b border-outline-variant pb-2" style="">Price Range</h3>
+<div class="space-y-4">
+<input aria-label="Filter by price range" class="w-full accent-primary-container focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" max="500000" min="50000" type="range"/>
+<div class="flex justify-between font-label-sm text-xs text-on-surface-variant">
+<span class="" style="">₹50,000</span>
+<span class="" style="">₹5,00,000</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-16">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sophisticated groom wearing a midnight emerald velvet sherwani with minimal champagne gold embroidery standing in a palace courtyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH5oUsHc6WfYHjq1mNIxbfVMB6HGnGe8cUm0hPVVN4Yyz5ouRUpxEmum4iKj5EbFrc--W7zjJas2iTtEG1ZxKOGMqqBkJHR8LeAlPVKTqMDFpN8r4Uijg5-bPn8carTU0CmsepBUirNrzq64UtnY9kXeDE9TOqHEsg-VKvaQImWF_hIqtwpzgXSkjbHY9BGl_K9ZgyzdoPfwRoFkaoLgCCZeZ9-vW1C8GHnUp-DkVg5RSwILgCOtBwdmVhVP7WU1rmGNrJCAnzXBU" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Midnight Emerald Sherwani</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Heritage Velvet Collection</p>
+<p class="font-label-sm text-secondary" style="">₹ 2,45,000</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Exquisite ivory brocade groom set with intricate silver and gold weaving, displayed against a minimalist architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOuLipKhdiPmbY8ICCf5CRHiepFp-SUiIYLAMd9RuTKLS-smksAWDZLn7fy8Eylzxd1hLNe69GgkUuw12Tk9Jt0tElXvfoUxYdnJbpBTkbSl9CaYe4zeUxAuJxZnBQ6NR55vwKrlGByK16hcrfpwIHQPh3-f2Wskl4aqI_yUcbeMhz5vzkcxDMEST3SoIabnaDy4fW_VmI8jTVzrhltWdU-SypbDmxzHh3TsXCDhQ5IhNwrEIRsCRj3ytDXZB0KDt7-vZ9JlaV4tc" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Ivory Brocade Groom Set</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Royal Weddings Special</p>
+<p class="font-label-sm text-secondary" style="">₹ 1,85,000</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Regal navy blue silk sherwani with matte gold buttons and a contrasting cream silk stole, elegant studio shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTdM12LUlQ1fSgeIlaXy86gZ3DfKYYdW7nNcffByESL0zAekTN-T__IU3MVclvlbgI8qgy_yNVxoR04p9DnX4iBUm_r-6OLe1MwP--JV86vh2cc3bgNaH90Db89W4695nqS3sKKMp14UT48mQMreXnJBrqcovaegfzsnc7ERl_blWllbj2tn5MUTELnzsR-KjM-TSC7s_Qj7TSoNR3e1TNhlSaCMRBuJpG1RljG77HkdJopurcsEVaoaKccoT_4waTcGWyT5Fq8Tk" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Royal Velvet Sherwani</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Deep Royal Collection</p>
+<p class="font-label-sm text-secondary" style="">₹ 3,10,000</p>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Rich maroon silk sherwani with tonal embroidery and structured shoulders, cinematic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg1o7QdV2MKH8Dv_aeA9OKBXSzjv0O9KI-jQYjuZ3vB2tfvqv23G4YjcpXDrjHTXSAcQsYk54V2qQVoptf4c1-B0EYIXwQDECosJYDpJ-7-2e_MLGp19WlxmxJJxz-oDDYWZ74QYNu0CsYYOiGXxzMRhlblek4SUgG5qwhKZvKHtrb-sewTHzSZDQA2XHmcqQxTzHusaJnYsLhv7DHvfxOG0tn2HkrKqKVwcPq0aTfWam23KdiXM72Sj0x9y6i7ZZm2bODMyUGU38" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Vintage Crimson Silk</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Classic Archive Series</p>
+<p class="font-label-sm text-secondary" style="">₹ 1,65,000</p>
+</div>
+<!-- Product Card 5 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern jet black bandhgala style sherwani with asymmetrical silver detailing, minimalist high-fashion look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyZX2mMS2DW2F8upWQWTnSSxrBebkva_TLsUwzHWRs4SyKGSiudG8WVkgzMI2JfuRpkn_2_SKOgCqEpEg7q30gzMP1YfsBXnEL2108AyoGlCgJ4EyayVi2Okv6tzppwoOsZiG-O9yWIlTyo0uUhzn8To3JKY_6A47q8Cd_FrVVeQ-Ip7nfknh9BvuSBpL-_cWuT4Qyup136FnTa3yMvUbVgN5JjCGwzkjMX1i4z2IRqOF85h6DqI0Mt0SfBHcw3kbDBv9491F7MkE" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Noir Monolith Bandhgala</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Contemporary Heritage</p>
+<p class="font-label-sm text-secondary" style="">₹ 2,15,000</p>
+</div>
+<!-- Product Card 6 -->
+<div class="group cursor-pointer" tabindex="0">
+<div class="aspect-[3/4] bg-surface-variant overflow-hidden mb-4 shadow-sm transition-shadow hover:shadow-lg">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Champagne gold raw silk sherwani with heavy Zardosi work on the hem and sleeves, warm luxury aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHZArl9GZHwIgxgcfBSKeP7NzU0DgiHbtdVQfA-bVWliitkbJFz60m3HZ7aFtPnIeR5_qZuOo9Oyu8et5e-IV4kGslVaCX686n_19dSA_wd0fnb35ug-5PQfY0KDh6lcF-f6FvvJG4BIyIS5-8a5Dv_QuXtZGbbSyUN7eUlcgEkOiI64cnb1j2wC5qgjhJXonkutgRCloO0I8T4W_G7QTQib83GK1BFmtCHR6Yi5yQIGYtI6BDzaHziiHB6otttiKCcadQRQwCuyc" style=""/>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary mb-1" style="">Champagne Zardosi Luxe</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-2" style="">Signature Craftsmanship</p>
+<p class="font-label-sm text-secondary" style="">₹ 4,50,000</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section (The Lookbook) -->
+<section class="bg-primary-container text-on-primary py-section-gap overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="flex justify-between items-baseline mb-16">
+<h2 class="font-headline-lg text-headline-lg text-emerald-50" style="">Complete the Look</h2>
+<a class="font-label-sm text-yellow-400 hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="">View Editorial Story</a>
+</div>
+<div class="flex gap-12 overflow-x-auto hide-scrollbar pb-8">
+<div class="flex-shrink-0 w-[450px]">
+<div class="aspect-[16/9] overflow-hidden mb-6">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover" data-alt="Luxury leather mojaris and a silk safa with a gemstone brooch laid out on a marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5DoZLzJDGH6OwAWtVExeKxhciseQUI1LCkUchA9GancfCGMMglrcHYYaa2ERPDWPtttRjuN9qLNtC3hGlB68nVj6YouTkmubTIXOXUiVtMQVy5l4N-4ASWKFjy70Wi8cf21NrYKtaQM5j9nopYbVnAD8xn9jKqotmIwrwRs_OxLwR1XeGLfMaLxirrURqOd25ZZXafApAhYZG2lkJtyWRsBTDqzuMvvz4FylQG9d1KFXnbXor1j7kZCu-fjbBSQN_iGEaJ783iAU" style=""/>
+</div>
+<p class="font-label-sm uppercase tracking-widest text-emerald-100/60 mb-2" style="">Accessories</p>
+<h3 class="font-headline-md text-headline-md text-emerald-50" style="">The Heritage Accoutrements</h3>
+</div>
+<div class="flex-shrink-0 w-[320px]">
+<div class="aspect-[3/4] overflow-hidden mb-6">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover" data-alt="Close up of a pearl and emerald groom's necklace against a dark fabric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArTqzatWdZcXsvwiI-ndWoXOoyB5jj8zZXuhrc7mnKcGHB97s0SgkH8Bjq0ae4Qx5UoHl-Pui8xOx49WvFnA4_M0-K5rOmQvCt-KHdjgUmbodyqNJFZdRqysZdHjE6-DQcoESQQKHQLp1SNkLaqSY11LZLYOyC8dRMjty4B1SxcDcnp7m3C9U4sPwqaE8hBiQHc-blMvlH08E0NSGTyEDJ_qFnbs-1F_JdPaBBY0ZOzJzS3Nbh1knuzVlRJUcQNGLDSkOmOZvJ6xI" style=""/>
+</div>
+<p class="font-label-sm uppercase tracking-widest text-emerald-100/60 mb-2" style="">Jewelry</p>
+<h3 class="font-headline-md text-headline-md text-emerald-50" style="">The Nawabi Malas</h3>
+</div>
+<div class="flex-shrink-0 w-[450px]">
+<div class="aspect-[16/9] overflow-hidden mb-6">
+<img alt="{{DATA:IMAGE:ID}}" class="w-full h-full object-cover" data-alt="A curated selection of silk stoles in various jewel tones neatly draped on an antique wooden chest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlDhoWX6cEOjQ5o29lHuSbkB_LfcIMG8tUE3eKCBFkQ3rlYyS5SRafUGAYbKSMisbQxMxlwJiy_VS3Y97lG-GAiXTpgsGfid_ogZ2UuMgUFv5OHr9mDF-K21O2maXHVMI6nDlULiWgHu8NUqUXSPtWVE1OeI2yEtTxxbHnR5y_IYCFuAdMLTHbPSULEDMiQuvPl1QZ2_Lfr_nx9aIkL6IbdEkB70ot2YRid2fZVe1E2SMESr1FGCkGvPn73URW6L5bFA66U0nZBBA" style=""/>
+</div>
+<p class="font-label-sm uppercase tracking-widest text-emerald-100/60 mb-2" style="">Finishing Touches</p>
+<h3 class="font-headline-md text-headline-md text-emerald-50" style="">Hand-woven Pashmina Stoles</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Footer -->
+<footer class="bg-emerald-950 dark:bg-emerald-950 text-emerald-50 dark:text-emerald-50 border-t border-emerald-900 full-width py-20 px-12 flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-serif text-yellow-500" style="">Heritage Lux</div>
+<p class="font-body-md text-xs text-emerald-200/60 leading-relaxed max-w-xs" style="">
+                    Curating India's finest craftsmanship for the global connoisseur. A legacy of luxury and tradition.
+                </p>
+</div>
+<div class="space-y-6">
+<h4 class="font-noto-serif text-xs uppercase tracking-widest text-yellow-500" style="">Discover</h4>
+<nav class="flex flex-col gap-4 font-noto-serif text-xs uppercase tracking-widest">
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Our Heritage</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Store Locator</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Craftsmanship</a>
+</nav>
+</div>
+<div class="space-y-6">
+<h4 class="font-noto-serif text-xs uppercase tracking-widest text-yellow-500" style="">Client Care</h4>
+<nav class="flex flex-col gap-4 font-noto-serif text-xs uppercase tracking-widest">
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Shipping &amp; Returns</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Privacy Policy</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" href="#" style="" tabindex="0">Sustainability</a>
+</nav>
+</div>
+<div class="space-y-6">
+<h4 class="font-noto-serif text-xs uppercase tracking-widest text-yellow-500" style="">Connect</h4>
+<div class="flex gap-4 mb-4">
+<span class="material-symbols-outlined text-emerald-200/60 hover:text-yellow-500 cursor-pointer" style="">public</span>
+<span class="material-symbols-outlined text-emerald-200/60 hover:text-yellow-500 cursor-pointer" style="">mail</span>
+<span class="material-symbols-outlined text-emerald-200/60 hover:text-yellow-500 cursor-pointer" style="">chat</span>
+</div>
+<div class="border-b border-emerald-900 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full placeholder-emerald-100/30 uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" placeholder="JOIN THE LUXE LIST" type="email"/>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-emerald-900 text-center">
+<p class="font-noto-serif text-xs uppercase tracking-widest text-emerald-200/40" style="">© 2024 Heritage Lux. All Rights Reserved.</p>
+</div>
+</footer>
+<div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-2" id="accessibility-toolbar">
+<button aria-label="Toggle High Contrast Mode" class="bg-primary text-on-primary p-3 rounded-full shadow-lg hover:scale-105 transition-transform flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+<button aria-label="Increase Font Size" class="bg-primary text-on-primary p-3 rounded-full shadow-lg hover:scale-105 transition-transform flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-primary" onclick="const s = document.body.style; s.fontSize = s.fontSize === '1.25rem' ? '1rem' : '1.25rem'">
+<span class="material-symbols-outlined">format_size</span>
+</button>
+</div></body></html>

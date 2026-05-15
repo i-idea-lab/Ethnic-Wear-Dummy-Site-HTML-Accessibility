@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#dce2f7",
+                    "primary-fixed": "#b0f0d6",
+                    "primary-container": "#064e3b",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "surface-container": "#e9edff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#241a00",
+                    "inverse-surface": "#293040",
+                    "background": "#f9f9ff",
+                    "tertiary-container": "#821f1f",
+                    "tertiary": "#62050b",
+                    "surface-variant": "#dce2f7",
+                    "inverse-on-surface": "#edf0ff",
+                    "primary": "#003527",
+                    "on-surface": "#141b2b",
+                    "on-primary-fixed": "#002117",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "surface-container-low": "#f1f3ff",
+                    "outline": "#707974",
+                    "on-surface-variant": "#404944",
+                    "secondary-fixed-dim": "#e9c349",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "on-primary-container": "#80bea6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#852221",
+                    "on-background": "#141b2b",
+                    "surface-bright": "#f9f9ff",
+                    "secondary": "#735c00",
+                    "secondary-fixed": "#ffe088",
+                    "secondary-container": "#fed65b",
+                    "inverse-primary": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "surface-container-high": "#e1e8fd",
+                    "on-tertiary-container": "#ff948c",
+                    "primary-fixed-dim": "#95d3ba",
+                    "surface-tint": "#2b6954",
+                    "on-secondary-container": "#745c00",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#410004",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d3daef",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#574500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-desktop": "64px",
+                    "section-gap": "120px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Noto Serif"],
+                    "body-lg": ["Inter"],
+                    "headline-display": ["Noto Serif"],
+                    "headline-lg": ["Noto Serif"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-secondary-container"><div class="bg-surface-container text-on-surface px-8 py-2 text-xs flex justify-end gap-6 border-b border-outline-variant font-label-sm uppercase tracking-widest">
+<div class="flex items-center gap-4">
+<span>Text Size</span>
+<div class="flex gap-2">
+<button aria-label="Decrease font size" class="hover:text-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="window.adjustFontSize(-1)">A-</button>
+<button aria-label="Increase font size" class="hover:text-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="window.adjustFontSize(1)">A+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 border-l border-outline-variant pl-6">
+<span>Contrast</span>
+<button aria-label="Toggle High Contrast" class="hover:text-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="document.documentElement.classList.toggle('high-contrast')">High Contrast</button>
+</div>
+<script>
+    window.adjustFontSize = (delta) => {
+      const html = document.documentElement;
+      const currentSize = parseFloat(window.getComputedStyle(html).fontSize);
+      html.style.fontSize = (currentSize + delta) + 'px';
+    }
+  </script>
+</div>
+<!-- TopNavBar -->
+<header class="bg-emerald-950/95 dark:bg-emerald-950/95 backdrop-blur-md text-emerald-50 dark:text-emerald-50 docked full-width top-0 z-50 border-b border-emerald-800/30 shadow-sm">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-serif italic text-emerald-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Heritage Lux</a>
+<div class="hidden md:flex gap-6 font-noto-serif tracking-wide uppercase text-sm">
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Sherwanis</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Lehengas</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Kurta Sets</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Occasion Wear</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">The Lookbook</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="cursor-pointer transition-transform duration-300 hover:scale-105">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div class="cursor-pointer transition-transform duration-300 hover:scale-105">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="cursor-pointer transition-transform duration-300 hover:scale-105 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="absolute -top-2 -right-2 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">1</span>
+</div>
+</div>
+</nav>
+</header>
+<main class="min-h-screen pt-32 pb-24 px-8 max-w-[1440px] mx-auto">
+<div class="mb-12">
+<h1 class="font-headline-display text-headline-display text-primary italic">Shopping Bag</h1>
+<p class="font-body-md text-on-surface-variant mt-2">1 item currently in your collection.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Column: Items -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Shopping Item Card -->
+<div class="flex flex-col md:flex-row gap-8 pb-8 border-b border-outline-variant">
+<div class="w-full md:w-48 aspect-[3/4] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a luxurious deep emerald sherwani with intricate gold embroidery and silk texture, editorial studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA04JX46jWXbl7x_yKYxZxSJHkIv6w8cGgi3JfWC_5sKZv0OkSRYDeweeE-MoopC_JeZ4rFUeYc80DxIf_50yik9N5RLy167z2CQ9eM9zqOiiGN8I0Wss3ikqo3WA4hFgsWkcHqGVeFYshDBFkcieHDXNz43JDIfpAZ4TDeltnev1WWplvaeeEfs_NrSUU7XN39CjwhD5W4sUhuQ0umSATGnUM-dUTAAIPJtjYEsDwa15r2ZROu-1_bMkuXbJ-xA9q9ePaKgZzJ6Sk"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-2">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Midnight Emerald Sherwani</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Heritage Collection | Hand-embroidered Zardozi</p>
+</div>
+<button aria-label="Remove Midnight Emerald Sherwani from bag" class="text-on-surface-variant hover:text-error transition-colors p-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+<div>
+<span class="font-label-sm text-label-sm text-outline block uppercase mb-1">Size</span>
+<span class="font-body-md">42 (Large)</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline block uppercase mb-1">Quantity</span>
+<div class="flex items-center gap-3">
+<button aria-label="Decrease quantity" class="w-6 h-6 border border-outline flex items-center justify-center hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-body-md">1</span>
+<button aria-label="Increase quantity" class="w-6 h-6 border border-outline flex items-center justify-center hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-2 text-right self-end">
+<span class="font-label-sm text-label-sm text-outline block uppercase mb-1">Price</span>
+<span class="font-headline-md text-headline-md text-primary-container">₹1,45,000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Hidden in this view but logic exists -->
+<div class="hidden flex-col items-center justify-center py-24 text-center">
+<span class="material-symbols-outlined text-6xl text-outline-variant mb-6">shopping_basket</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Your bag is empty</h2>
+<p class="font-body-lg text-on-surface-variant mb-8 max-w-md">Discovery awaits. Explore our latest heritage collections and find your perfect fit.</p>
+<a class="inline-flex items-center justify-center px-10 py-4 bg-primary text-on-primary font-label-sm uppercase tracking-widest hover:bg-primary-container transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">
+                        Continue Shopping
+                    </a>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<div class="bg-surface-container-low p-8 sticky top-32 border border-emerald-900/5">
+<h2 class="font-headline-md text-headline-md text-primary mb-8">Order Summary</h2>
+<div class="space-y-4 font-body-md border-b border-outline-variant pb-6 mb-6">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Subtotal</span>
+<span>₹1,45,000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated Shipping</span>
+<span>Calculated at next step</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Taxes (GST)</span>
+<span>₹17,400</span>
+</div>
+</div>
+<div class="flex justify-between items-end mb-8">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Total Amount</span>
+<span class="font-headline-md text-headline-md text-primary-container">₹1,62,400</span>
+</div>
+<button class="w-full py-5 bg-primary text-on-primary font-label-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-lg shadow-primary/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low">
+                        Secure Checkout
+                        <span class="material-symbols-outlined text-lg">lock</span>
+</button>
+<div class="mt-8 space-y-4">
+<div class="flex items-start gap-4 p-4 border border-outline-variant/30">
+<span class="material-symbols-outlined">verified</span>
+<div>
+<span class="font-label-sm text-label-sm block text-primary uppercase">Heritage Guarantee</span>
+<p class="text-[12px] text-on-surface-variant mt-1 leading-relaxed">Each piece is hand-crafted and verified for 100% authenticity before dispatch.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 border border-outline-variant/30">
+<span class="material-symbols-outlined">local_shipping</span>
+<div>
+<span class="font-label-sm text-label-sm block text-primary uppercase">Global Shipping</span>
+<p class="text-[12px] text-on-surface-variant mt-1 leading-relaxed">Complimentary white-glove shipping for all orders over ₹50,000.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- The Lookbook (Horizontal Scroll Suggestion) -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-2">Curated Pairing</span>
+<h2 class="font-headline-lg text-headline-lg text-primary italic">Complete The Look</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-8 snap-x no-scrollbar">
+<div class="min-w-[320px] snap-start">
+<div class="aspect-[3/4] mb-6 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Elegant gold-toned leather mojari shoes with intricate embroidery on dark velvet background, luxury accessory photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFSrLRTgf-l49Fzwm5nY_s07qScvCPUtsrZLziTDvIr48AWHPgH0w1iqLjJ8JqTw8h6sAH5_Z1lImp7_Xm9xSCr6RBrDvYh3C2cH2YobI8Q5yBtvgOc204HoY2rpLpjvCBmMGxgLwTjMyq7Nk95WYa6u1VsMTcnQ63dw3934arqnvPPEC80zy_tVNvUmepvcrHTzmxi64jNkPvxOpuyZB6QamnIHCm4ohP7XhcLFDh1HKyL1_acesualmXpYafmfUc2Y0Kc38H6bs"/>
+</div>
+<h4 class="font-headline-md text-[20px] text-primary">Hand-crafted Gold Mojaris</h4>
+<p class="font-label-sm mt-1 tracking-widest">₹12,500</p>
+</div>
+<div class="min-w-[420px] snap-start">
+<div class="aspect-[3/2] mb-6 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Symmetric overhead view of a traditional silk stole with gold zari borders on a minimalist neutral surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx0siX5gvWKiWJNunHAK6zf2tfMXA6sWuhrJa9TG35048v0KWF2IMzgqp_i-0zmAHOdVu6xC89H8c2qkKLu4UglUbVzwM3odyxtyXn90nHAVXGx-3Ra7jtv6jCvN4DxwgujdXCQwUSHVe0fqBdpDz8zaZp47A7_fraW2rqgLBufwtkRJd2ORRYKgnx2GYGlMAZAFXCivH4gFVcHGgC74-nfCkIvbqy80OkJCaUP7ifMJ8V7pOZeQXYuBznaf7XIx-mPeXWNZSXSpk"/>
+</div>
+<h4 class="font-headline-md text-[20px] text-primary">Ivory Silk Pashmina Stole</h4>
+<p class="font-label-sm mt-1 tracking-widest">₹28,000</p>
+</div>
+<div class="min-w-[320px] snap-start">
+<div class="aspect-[3/4] mb-6 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Exquisite gold brooch with a single emerald stone, macro shot with dramatic lighting highlighting the metal craftsmanship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOvNV9iCDFFX1J5ecmUNK1LPxhjOJgWqI1a3qpPAQ3hG93okS5VCXFGufppTEC41TIAY3cj7wvSb8S2dZZvVN82iI5DmEujgmUoH1LyLDqDXfTKKv0NYrqlXYWwYePe9jXOyV7QiigKkN2xec3a8SYuiCP2EUCKmbcqrB9r4rxxVkDVXU_U15WB655qNYDzob-ugrvr5pm3dw2fINFbx_ReVed3MzvV2Z1Ys-UbrlcAG3URzev7oS8Dd2QImRLevgm9Y5jbz_XHYc"/>
+</div>
+<h4 class="font-headline-md text-[20px] text-primary">Royal Emerald Brooch</h4>
+<p class="font-label-sm mt-1 tracking-widest">₹18,500</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-950 dark:bg-emerald-950 text-emerald-50 dark:text-emerald-50 full-width py-20 px-12 border-t border-emerald-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="flex flex-col gap-6">
+<span class="text-xl font-serif text-yellow-500">Heritage Lux</span>
+<p class="font-noto-serif text-xs uppercase tracking-widest leading-loose opacity-60">
+                    Curating timeless Indian craftsmanship for the modern global connoisseur.
+                </p>
+</div>
+<div class="flex flex-col gap-4 font-noto-serif text-xs uppercase tracking-widest">
+<h4 class="text-yellow-500 mb-2">Discovery</h4>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Our Heritage</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Store Locator</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Craftsmanship</a>
+</div>
+<div class="flex flex-col gap-4 font-noto-serif text-xs uppercase tracking-widest">
+<h4 class="text-yellow-500 mb-2">Concierge</h4>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Shipping &amp; Returns</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Privacy Policy</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Sustainability</a>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-noto-serif text-xs uppercase tracking-widest text-yellow-500">The Atelier Newsletter</h4>
+<div class="flex border-b border-emerald-800 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs tracking-widest w-full placeholder:text-emerald-200/30 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="ENTER YOUR EMAIL" type="email"/>
+<button class="material-symbols-outlined text-yellow-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-emerald-900/50 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto opacity-40 font-noto-serif text-xs uppercase tracking-widest">
+<span>© 2024 Heritage Lux. All Rights Reserved.</span>
+<div class="flex gap-8">
+<a class="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Instagram</a>
+<a class="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Pinterest</a>
+<a class="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">Vogue Business</a>
+</div>
+</div>
+</footer>
+</body></html>

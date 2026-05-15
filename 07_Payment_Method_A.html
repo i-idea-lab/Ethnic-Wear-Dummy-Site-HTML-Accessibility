@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "on-tertiary-fixed": "#410004",
+                        "on-tertiary-fixed-variant": "#852221",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "outline": "#707974",
+                        "on-secondary-container": "#745c00",
+                        "inverse-on-surface": "#edf0ff",
+                        "tertiary": "#62050b",
+                        "surface-dim": "#d3daef",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-high": "#e1e8fd",
+                        "secondary-fixed": "#ffe088",
+                        "on-surface": "#141b2b",
+                        "on-primary-container": "#80bea6",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "inverse-primary": "#95d3ba",
+                        "surface-tint": "#2b6954",
+                        "surface-container-highest": "#dce2f7",
+                        "primary-fixed": "#b0f0d6",
+                        "on-surface-variant": "#404944",
+                        "outline-variant": "#bfc9c3",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#241a00",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#ff948c",
+                        "on-background": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "secondary-fixed-dim": "#e9c349",
+                        "secondary": "#735c00",
+                        "tertiary-container": "#821f1f",
+                        "surface-variant": "#dce2f7",
+                        "surface-container": "#e9edff",
+                        "primary": "#003527",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002117",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#064e3b",
+                        "primary-fixed-dim": "#95d3ba",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fed65b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-display": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-left: 3px solid #735c00;
+            background-color: rgba(254, 214, 91, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background"><div class="bg-surface-container py-2 px-8 flex justify-end gap-4 text-[10px] uppercase tracking-widest border-b border-outline-variant">
+<span class="font-bold">Accessibility:</span>
+<button aria-label="Increase font size" class="hover:underline">A+</button>
+<button aria-label="Decrease font size" class="hover:underline">A-</button>
+<button aria-label="Toggle High Contrast" class="hover:underline">High Contrast</button>
+</div>
+<!-- TopNavBar -->
+<header class="bg-emerald-950/95 backdrop-blur-md text-emerald-50 font-noto-serif tracking-wide uppercase text-sm docked full-width top-0 z-50 border-b border-emerald-800/30 shadow-sm sticky">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-serif italic text-emerald-50 cursor-pointer transition-transform duration-300 hover:scale-105">Heritage Lux</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer">Sherwanis</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer">Lehengas</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer">Kurta Sets</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer">Occasion Wear</a>
+<a class="text-emerald-100/80 hover:text-yellow-400 transition-colors cursor-pointer">The Lookbook</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" data-icon="shopping_bag" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all duration-300" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-12 min-h-screen">
+<div class="mb-10 text-center">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Secure Checkout</h1>
+<p class="font-body-md text-on-surface-variant">Complete your heritage journey with our secure payment gateway.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Payment Methods Column -->
+<div class="lg:col-span-8">
+<div class="bg-white rounded shadow-sm border border-outline-variant overflow-hidden">
+<div class="flex flex-col md:flex-row">
+<!-- Sidebar Tabs -->
+<fieldset class="w-full md:w-64 bg-surface-container-low border-r border-outline-variant">
+<legend class="sr-only">Select Payment Method</legend>
+<button aria-pressed="true" class="w-full text-left p-6 active-tab flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="credit_card">credit_card</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Card</span>
+</button>
+<button class="w-full text-left p-6 hover:bg-surface-container transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="qr_code_2">qr_code_2</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">UPI / QR</span>
+</button>
+<button class="w-full text-left p-6 hover:bg-surface-container transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance">account_balance</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Net Banking</span>
+</button>
+<button class="w-full text-left p-6 hover:bg-surface-container transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Wallets</span>
+</button>
+</fieldset>
+<!-- Content Area -->
+<div class="flex-1 p-8">
+<div id="card-payment">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 text-xl">Credit or Debit Card</h2>
+<form class="space-y-6"><div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="card_number">Card Number</label>
+<input aria-required="true" class="w-full border-0 border-b border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary bg-transparent py-3 font-body-md outline-none" id="card_number" placeholder="0000 0000 0000 0000" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="expiry_date">Expiry Date</label>
+<input aria-required="true" class="w-full border-0 border-b border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary bg-transparent py-3 font-body-md outline-none" id="expiry_date" placeholder="MM/YY" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="cvv">CVV</label>
+<input aria-required="true" class="w-full border-0 border-b border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary bg-transparent py-3 font-body-md outline-none" id="cvv" placeholder="***" required="" type="password"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="card_name">Name on Card</label>
+<input aria-required="true" class="w-full border-0 border-b border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary bg-transparent py-3 font-body-md outline-none" id="card_name" placeholder="Full Name" required="" type="text"/>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+    Your payment information is encrypted and secure.
+</div>
+<button class="w-full bg-primary text-on-primary py-4 font-label-sm text-label-sm uppercase tracking-[0.2em] hover:bg-emerald-900 focus:ring-4 focus:ring-emerald-200 transition-all">
+    Pay ₹84,500
+</button></form>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="mt-8 flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Visa" class="h-6" data-alt="visa payment logo vector icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDICpnIc6MJeU9gWuBShRNhHuDhL3zVC7HutnMtGqQFzyNSAbnE8hIRB2ydE0UPyCftPg3suA-S1SO0Ua-BOcduiu4m_0o16cJq8VJdXw-zD6HRYhmGFWFOG6_gWCLqdjz4-XQT24S0kPPDEAVB9s85LfDRa6juSMkMpOebZzQBBOmmsiLxIvHpsqVJiVTAtfZez6RtU7obAOYb1lCLOMddlMZ5kK2qQiMpCWJCB5InxQDRHg82fb5Mqses0mrXPy0UTFf7xXgnp0I"/>
+<img alt="Mastercard" class="h-8" data-alt="mastercard payment logo vector icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChauclxfCn7kmr0GYk2lNyzheJaUP1K_wDVfTTyVJ9zt9ZuwlVBbtnzT0l8syewhQ7tt9yNHUrMipZZdfSVLPZqXsH2tQTsddflcdTtQ4iZOxw15UwxIEmU1ZgUjp4vXkjIdRAIewB5lQiYivFzwRonRJV8jtqDqjsOLN4fm1XbVCuZa3mkUXYB7FnoO4wQcIHlPgOl877yfP_efSjrlKXotIg2NrWfmFW6nPraXch1LNWIta1c6GSaHoY6kyt0a3mQDEtXRi2Z7M"/>
+<img alt="Razorpay" class="h-6" data-alt="razorpay payment gateway logo vector icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8GaSDkdtfbfcRrhDlmd-WivLRPTgV9i9W2u8WFHXZT6fZpzfqs37PW7OjOkXfZt7SI4FUozEFyD_M8I2Ag6P0YUW50k-ku0Gf1W4P7zvhOknRVNuEChZ1LeahJ6nzGv3A6n95uBQJsPqSHo-EY7brQOja1QkmsQSPbE2gN_Xjhr-0pBk68X7V8RUUvaEPBK4uOFqJPU_hJvHXozOcenXYPCgLWj-NNETkkvLLpk52IJ0zZZNBhe4aOAbEe8L3cx75BW2_ANEMqLA"/>
+<img alt="Stripe" class="h-6" data-alt="stripe payment processor logo vector icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx-lyMnOsU0BzlZQYrYLgVYv4A0vz-q_VjlA-ytPKtGHqoFAe9Cbpzem0Wk9JNKsAy-ILmZiFGvh_lJzcX6RgnIg1SiOp68TGVABgo0wdhFNDxPNV3c5g5r_oT7Q5s90p2Krk_VlqxJVA-uvoHsxoqfKSIQQ3I4JJiHyRlkA1wKrg3xaDgrHokwjB2XdsoH9lgV7yiI_NPCARJdQ_6XVJWAihChLSPnTSVjNzEpHMMlUhO-zbozRZE145l-60PPS4T6RAkZpP0zAI"/>
+</div>
+</div>
+<!-- Order Summary Column -->
+<aside class="lg:col-span-4">
+<div class="bg-surface-container-low p-8 border border-outline-variant sticky top-32">
+<h3 class="font-headline-md text-xl text-primary mb-6 border-b border-outline-variant pb-4">Order Summary</h3>
+<div class="space-y-6 mb-8">
+<div class="flex gap-4">
+<div class="w-20 h-28 bg-surface-container-high overflow-hidden">
+<img alt="Heritage Sherwani" class="w-full h-full object-cover" data-alt="luxurious emerald green velvet sherwani with intricate gold zardosi embroidery on a headless mannequin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4hSSg7ZBCPh9yFFADo9_FKqwHU-skNyiszF9y0x31abdPzrJl3uWK3_c2iLJaj7u_H6xwCfUF_P_6o5Q9QF26IkUIDQoAdy0bwcTDKg77LfO4EsjXlQpKs8oN5QE59QfPL2PQRTEHiuEl9UzqSC9tgm_d62hisY_S0X4VeK6Ib-EXD2xF7FKKmO0i54SDpJd1EpFYjM--e1Ct_L3Q0vVg7_csF_JKsRyyWbM3cMObQPaRqxO3-LPPzR6Gr1V5zVXf-SGocwXpoyc"/>
+</div>
+<div class="flex-1">
+<h4 class="font-noto-serif text-sm font-bold uppercase tracking-tight">Varanasi Silk Sherwani</h4>
+<p class="text-xs mt-1 italic text-secondary">Custom Size: 42</p>
+<p class="text-sm font-bold mt-2">₹68,000</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-28 bg-surface-container-high overflow-hidden">
+<img alt="Zari Juttis" class="w-full h-full object-cover" data-alt="hand-crafted champagne gold leather juttis with delicate zari embroidery on a minimalist cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzCxctTjvP43BM1MT1XEMEf8rqF7saem2WcFcgubRVdVTC4tJezvaDM_79Je40tFXYG_1n0JnjjR7oz4MLMUoE8At0t_TX5mr4d0llw04LYJ-A_VI-A4SEYVTc1J7j-8J_wAUykinTVbo2v_8LCmgPL1UnvDx8f4MYJL73uel8XI98ty90WpRTR64yk4RfCqGNr75qf1_Bcnch4mpaLmexgxmzgb3LCyx6WEt0DjOFQAO93H7s60qqfoQBxUt1xr8hVmXsB5ou9QU"/>
+</div>
+<div class="flex-1">
+<h4 class="font-noto-serif text-sm font-bold uppercase tracking-tight">Handcrafted Zari Juttis</h4>
+<p class="text-xs mt-1 italic text-secondary">Size: 9 UK</p>
+<p class="text-sm font-bold mt-2">₹16,500</p>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-6 border-t border-outline-variant">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface">Subtotal</span>
+<span>₹84,500</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface">Shipping</span>
+<span class="text-secondary uppercase text-[10px] font-bold tracking-widest">Complimentary</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface">Tax (GST)</span>
+<span>Included</span>
+</div>
+<div class="flex justify-between font-headline-md text-xl pt-4 border-t border-dashed border-outline-variant">
+<span class="text-on-surface">Total</span>
+<span class="text-primary font-bold">₹84,500</span>
+</div>
+</div>
+<div class="mt-8 bg-white p-4 border border-outline-variant">
+<p class="text-[10px] uppercase tracking-widest leading-relaxed text-on-surface">
+                            Every Heritage Lux piece is crafted by master artisans. Please allow 14-21 days for bespoke adjustments.
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-950 text-emerald-50 font-noto-serif text-xs uppercase tracking-widest full-width py-20 px-12 border-t border-emerald-900 flat no shadows mt-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-serif text-yellow-500">Heritage Lux</div>
+<p class="text-emerald-200/60 normal-case tracking-normal leading-relaxed">Preserving the legacy of Indian craftsmanship through contemporary silhouettes and timeless luxury.</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-emerald-50 mb-6 font-bold">The House</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Our Heritage</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Craftsmanship</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Sustainability</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="text-emerald-50 mb-6 font-bold">Assistance</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Store Locator</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Shipping &amp; Returns</a>
+<a class="text-emerald-200/60 hover:text-emerald-50 transition-colors duration-200 cursor-pointer">Privacy Policy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="text-emerald-50 mb-6 font-bold">Newsletter</h4>
+<div class="flex border-b border-emerald-800 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full text-emerald-50 placeholder-emerald-800" placeholder="YOUR EMAIL" type="email"/>
+<span class="material-symbols-outlined cursor-pointer hover:text-yellow-500" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-emerald-900 text-center opacity-40">
+            © 2024 Heritage Lux. All Rights Reserved.
+        </div>
+</footer>
+</body></html>
