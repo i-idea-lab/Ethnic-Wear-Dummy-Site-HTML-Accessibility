@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethnic Luxe — Design Prototype Index</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #002f22;
+      --green-mid:    #003527;
+      --green-light:  #064e3b;
+      --gold:         #c8a94a;
+      --gold-light:   #fed65b;
+      --cream:        #f9f6ef;
+      --cream-dark:   #ede8dc;
+      --text-primary: #141b2b;
+      --text-muted:   #404944;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      background: var(--green-deep);
+      padding: 64px 40px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* Decorative mandala rings */
+    .mandala {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 169, 74, 0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .mandala-1 { width: 320px; height: 320px; }
+    .mandala-2 { width: 500px; height: 500px; border-color: rgba(200,169,74,0.08); }
+    .mandala-3 { width: 700px; height: 700px; border-color: rgba(200,169,74,0.05); }
+
+    .header-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .header-title {
+      font-family: 'Noto Serif', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .header-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .header-subtitle {
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      position: relative;
+    }
+
+    /* ── Divider ornament ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 48px auto 40px;
+      max-width: 320px;
+    }
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .ornament-line:last-child {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .ornament-diamond {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── Main grid ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-left: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      display: block;
+      text-decoration: none;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px;
+      padding: 28px 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
+      cursor: pointer;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.10s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.20s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.30s; }
+    .card:nth-child(7) { animation-delay: 0.35s; }
+    .card:nth-child(8) { animation-delay: 0.40s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green-mid), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 53, 39, 0.12);
+      border-color: rgba(200,169,74,0.3);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-number {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      background: rgba(0, 53, 39, 0.08);
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--green-mid);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-title {
+      font-family: 'Noto Serif', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-arrow {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .card-arrow svg {
+      width: 14px; height: 14px;
+      stroke: var(--text-muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover .card-arrow {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+      transform: rotate(45deg);
+    }
+
+    .card:hover .card-arrow svg {
+      stroke: var(--white);
+    }
+
+    /* ── Flow section ── */
+    .flow-track {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .flow-track::-webkit-scrollbar { display: none; }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .flow-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 24px;
+      font-size: 13px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+
+    .flow-chip:hover {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .flow-chip:hover .flow-num {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .flow-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .flow-arrow {
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0,0,0,0.2);
+      font-size: 12px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: var(--green-deep);
+      padding: 28px 40px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      header { padding: 48px 24px 44px; }
+      main { padding: 0 20px 60px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="mandala mandala-1"></div>
+    <div class="mandala mandala-2"></div>
+    <div class="mandala mandala-3"></div>
+    <p class="header-eyebrow">UI Prototype Showcase</p>
+    <h1 class="header-title">Ethnic <em>Luxe</em></h1>
+    <p class="header-subtitle">8 screens &nbsp;·&nbsp; End-to-end shopping experience</p>
+  </header>
+
+  <main>
+
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-diamond" style="width:5px;height:5px;opacity:.5"></div>
+      <div class="ornament-line"></div>
+    </div>
+
+    <!-- All Screens Grid -->
+    <p class="section-label">All Screens</p>
+    <div class="grid">
+
+      <!-- 01 Homepage -->
+      <a class="card" href="01_Homepage_A.html" target="_blank" rel="noopener">
+        <p class="card-number">01 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path d="M9 21v-7h6v7"/></svg>
+        </div>
+        <h2 class="card-title">Homepage</h2>
+        <p class="card-desc">Brand landing page with hero banner, featured collections, and editorial stories.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 02 Kurta Sets -->
+      <a class="card" href="02_Kurta_Sets_A.html" target="_blank" rel="noopener">
+        <p class="card-number">02 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+        </div>
+        <h2 class="card-title">Kurta Sets</h2>
+        <p class="card-desc">Product listing page for the Kurta Sets collection with filters and sorting options.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 03 Sherwani -->
+      <a class="card" href="03_Sherwani_Collections_A.html" target="_blank" rel="noopener">
+        <p class="card-number">03 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2 class="card-title">Sherwani Collections</h2>
+        <p class="card-desc">Curated listing of premium Sherwanis for weddings and festive occasions.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 04 Product Details -->
+      <a class="card" href="04_Product_Details_A.html" target="_blank" rel="noopener">
+        <p class="card-number">04 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h2 class="card-title">Product Details</h2>
+        <p class="card-desc">Individual product view with image gallery, size selection, and add-to-bag action.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 05 Shopping Bag -->
+      <a class="card" href="05_Shopping_Bag_A.html" target="_blank" rel="noopener">
+        <p class="card-number">05 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h2 class="card-title">Shopping Bag</h2>
+        <p class="card-desc">Cart review with item summary, quantity controls, and order total calculation.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 06 Shipping Details -->
+      <a class="card" href="06_Shipping_Details_A.html" target="_blank" rel="noopener">
+        <p class="card-number">06 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h2 class="card-title">Shipping Details</h2>
+        <p class="card-desc">Address entry form with delivery options and estimated arrival times.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 07 Payment -->
+      <a class="card" href="07_Payment_Method_A.html" target="_blank" rel="noopener">
+        <p class="card-number">07 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h2 class="card-title">Payment Method</h2>
+        <p class="card-desc">Secure payment screen supporting cards, UPI, and net banking options.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+      <!-- 08 Order Confirmation -->
+      <a class="card" href="08_Order_Confirmation_A.html" target="_blank" rel="noopener">
+        <p class="card-number">08 &nbsp;/&nbsp; 08</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2 class="card-title">Order Confirmation</h2>
+        <p class="card-desc">Success state with order summary, tracking info, and next-step prompts.</p>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- User Flow strip -->
+    <p class="section-label" style="margin-top:8px;">User Flow</p>
+    <div class="flow-track">
+
+      <div class="flow-step">
+        <a class="flow-chip" href="01_Homepage_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">1</span> Homepage
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="02_Kurta_Sets_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">2</span> Kurta Sets
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="03_Sherwani_Collections_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">3</span> Sherwani
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="04_Product_Details_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">4</span> Product Details
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="05_Shopping_Bag_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">5</span> Shopping Bag
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="06_Shipping_Details_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">6</span> Shipping
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="07_Payment_Method_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">7</span> Payment
+        </a>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <a class="flow-chip" href="08_Order_Confirmation_A.html" target="_blank" rel="noopener">
+          <span class="flow-num">8</span> Confirmation
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Ethnic <span>Luxe</span> &nbsp;·&nbsp; UI Prototype &nbsp;·&nbsp; All screens open in a new tab</p>
+  </footer>
+
+</body>
+</html>
